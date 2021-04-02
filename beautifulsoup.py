@@ -6,18 +6,19 @@ import numpy as np
 url = 'https://www.ebay.ca/b/Nike-Mens-T-Shirts/15687/bn_701356' 
 results = requests.get(url)
 
+#instantiate to the beautifulsoup library
 soup = BeautifulSoup(results.text,'html.parser')
 
-#create empty lists for storage
+#create empty lists for data storage
 item_title= []
 Price = []
 Trending_Price = []
 Shipping = []
 Hotness = []
 
-#use find all function
 shirt_div = soup.find_all('div',class_='s-item__info clearfix')
 
+#create a loop to iterate through the container that represents the entire page
 for container in shirt_div:
     title = container.h3.text
     item_title.append(title)
@@ -33,7 +34,8 @@ for container in shirt_div:
 
     hotness = container.find('span',class_= 's-item__hotness s-item__itemHotness')    
     Hotness.append(hotness)
-
+    
+#create a datafrane called nike_df and store all the items within the container.        
 nike_df = pd.DataFrame({
 'Item name':item_title,
 'Price': Price,
