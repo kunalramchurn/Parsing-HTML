@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np 
 
+
+headers = {'User-Agent':Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36}
 url = 'https://www.ebay.ca/b/Nike-Mens-T-Shirts/15687/bn_701356' 
 results = requests.get(url)
 
